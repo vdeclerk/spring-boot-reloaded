@@ -15,8 +15,10 @@
 	<description>Demo project for Spring Boot</description>
 	<packaging>war</packaging>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
+		<start-class>com.v15k.springbootreloaded.SpringBootReloadedApplication</start-class>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,8 +51,25 @@
     	<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
+            <!-- <scope>provided</scope> -->
         </dependency>
+        <dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+    	</dependency>
+    	<dependency>
+    		<groupId>io.jsonwebtoken</groupId>
+    		<artifactId>jjwt</artifactId>
+    		<version>0.9.1</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>javax.xml.bind</groupId>
+    		<artifactId>jaxb-api</artifactId>
+    	</dependency>
 	</dependencies>
 
 	<build>
@@ -60,6 +79,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
